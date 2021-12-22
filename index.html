@@ -1,12 +1,53 @@
 <html>
 <head>
+<script type="text/javascript">
+function inNdays(id, n) {
+	var date = new Date();
+	date.setDate(date.getDate() + n);
+	var dd = date.getDate();
+	var mm = date.getMonth() + 1;
+	var yyyy = date.getFullYear();
+
+	if (dd < 10) {
+		dd = '0' + dd;
+	}
+
+	if (mm < 10) {
+		mm = '0' + mm;
+	}
+	nDays = yyyy + '-' + mm + '-' + dd;
+	document.getElementById(id).setAttribute("min", nDays);
+}
+
+</script>
+<script type="text/javascript">
+import { isHoliday } from "https://code4fukui.github.io/day-es/Holiday.js";
+console.log(isHoliday(new Day("2021-07-22"))); // true
+</script>
 </head>
 <body>
+<div>祝祭日非対応版 & 今日から3日後から指定可能</div><br/>
 <dl>
 <dt>ご利用希望日</dt>
 <dd>
-<input type="date" name="date">
+<input id="plus3days" type="date" name="date" min="" max="">
+<script>
+inNdays("plus3days", 3);
+</script>
 </dd>
 </dl>
+<br/>
+<br/>
+<div>祝祭日対応版 & 今日から3営業日後から指定可能</div><br/>
+<dl>
+<dt>ご利用希望日</dt>
+<dd>
+<input id="plus3days" type="date" name="date" min="" max="">
+<script>
+inNdays("plus3days", 3);
+</script>
+</dd>
+</dl>
+</div>
 </body>
 </html>
