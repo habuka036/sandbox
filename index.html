@@ -20,10 +20,7 @@ function inNdays(id, n) {
 }
 
 </script>
-<script type="text/javascript">
-import { isHoliday } from "./Holiday.js";
-console.log(isHoliday(new Day("2021-07-22"))); // true
-</script>
+<script src="./inNDays.js" type="module"></script>
 </head>
 <body>
 <div>祝祭日非対応版 & 今日から3日後から指定可能</div><br/>
@@ -44,7 +41,7 @@ inNdays("plus3days", 3);
 <dd>
 <input id="plus3days" type="date" name="date" min="" max="">
 <script>
-inNdays("plus3days", 3);
+inNDaysWithoutHoliday("plus3days", 3);
 </script>
 </dd>
 </dl>
